@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+          .sect {
+            text-align: center;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+         input, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #display {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        #errorMsg {
+            color: red;
+            font-weight: bold;
+        }
+        html, body {
+            background-image: url(/images/view-modern-classroom-school.jpg);
+            background-position: center;
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sect">
+        <h1>Grading System</h1>
+        <p style="color: red; display: none;" id="errorMsg">Haba, fill it joor</p>
+        <input type="number" placeholder="Score" id="score">
+        <button onclick="checkGrade()">Check</button>
+        <div class="sect" id="display">Results here</div>
+
+
+    </div>
+    <script>
+        function checkGrade() {
+            var userScore = score.value;
+            var newScore = Number(userScore)
+            if ( userScore === "") {
+            errorMsg.style.display = 'block';
+        } else {
+            errorMsg.style.display = 'none';
+            if (newScore >= 0 && newScore < 40) {
+                console.log('F - Fail');
+                display.innerText = 'F - Fail';
+            }
+            else if (newScore >= 40 && newScore <45) {
+            console.log('E -Fair');
+            display.innerText ='E -Fair';
+                }
+            else if (newScore >= 45 && newScore < 50) {
+                    console.log('D - Pass');
+                    display.innerText ='D - Pass';
+                }
+                else if (newScore >= 50 && newScore < 60) {
+                    console.log('C - Good');
+                    display.innerText= 'C - Good';
+                    
+                }
+                else if (newScore >= 60 && newScore < 70) {
+                    console.log('B - Very Good');
+                    display.innerText = 'B - Very Good';
+
+                }
+                else if (newScore >=70 && newScore <= 100) {
+                    console.log('A - Excellent');
+                    display.innerText ='A - Excellent' ;
+                    
+                } else {
+                    display.innerText = "Invalid Score";
+                } 
+            } 
+        }
+    </script>
+</body>
+</html>
